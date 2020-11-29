@@ -15,7 +15,7 @@ public class Main{
 			System.out.print("ヒーローのターン、行動を選択してください1...戦う、2...逃げる>");
 			int heroAction=new Scanner(System.in).nextInt();
 			if(heroAction==1){
-				if(i+1==5){
+				if((i+1)%5==0){
 					System.out.print("ヒーローの攻撃を選択してください1...叩く、2...昇竜拳、3...メガトンパンチ、4...えくすかりばーーーーーーーーーーーー！！！！>");
 					int atackAction= new Scanner(System.in).nextInt();
 					int heroAtackDamages = Hero.heroAtackDamages(hero1.heroName,hero1.heroAtack,mon1.monsterName,atackAction);
@@ -29,7 +29,7 @@ public class Main{
 					System.out.printf("%sのHPは%d%n",mon1.monsterName,mon1.monsterHp);
 				}
 			}else if(heroAction==2){
-				System.out.println("勇者は逃げ出した!!");
+				System.out.println(hero1.heroName + "は逃げ出した!!");
 				System.out.println("GameOver");
 				return;
 			}else{
