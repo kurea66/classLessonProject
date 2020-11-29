@@ -12,7 +12,7 @@ public class Monster{
 		this.monsterMp=calcMonsterManaPoints(lv);
 		this.monsterAtack=calcMonsterAtack(lv);
 		//デバック行
-		System.out.printf("%s:%d:%d:%d:%d",this.monsterName,this.monsterLv,this.monsterHp,this.monsterMp,this.monsterAtack);
+		//System.out.printf("%s:%d:%d:%d:%d",this.monsterName,this.monsterLv,this.monsterHp,this.monsterMp,this.monsterAtack);
 	}
 	public int calcMonsterHitPoints(int lv){
 		int hp=new Random().nextInt(11) + (lv - 5);
@@ -27,5 +27,31 @@ public class Monster{
 	public int calcMonsterAtack(int lv){
 		int atack=new Random().nextInt(30) + 100;
 		return atack;
+	}
+	static int monAtackDamages(String heroName,String monName,int monAtack,int atackAction){
+		int monAtackDamages = 0;
+		switch(atackAction){
+			case 0:
+				System.out.printf("%sは叩いた%n",monName);
+				monAtackDamages=(int)(new Random().nextInt(20)+monAtack*0.3);
+				System.out.println(heroName + "に"+ monAtackDamages + "のダメージ");
+				break;
+			case 1:
+				System.out.printf("%sのファイアブレス%n",monName);
+				monAtackDamages=(int)(new Random().nextInt(20)+monAtack*0.8);
+				System.out.println(heroName + "に"+ monAtackDamages + "のダメージ");
+				break;
+			case 2:
+				System.out.printf("%sの拡散する波動%n",monName);
+				monAtackDamages=(int)(new Random().nextInt(20)+monAtack*1);
+				System.out.println(heroName + "に"+ monAtackDamages + "のダメージ");
+				break;
+			case 3:
+				System.out.printf("%sのティロフィナーレ%n",monName);
+				monAtackDamages=(int)(new Random().nextInt(20)+monAtack*2.1);
+				System.out.println(heroName + "に"+ monAtackDamages + "のダメージ");
+				break;
+		}
+	return monAtackDamages;
 	}
 }
